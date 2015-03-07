@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>QtKnobs by ashish157</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>QtKnobs</h1>
+        <p>A Qt and QML based Library/Plugin for Knobs. </p>
+
+        <p class="view"><a href="https://github.com/ashish157/Knobs-n-Dials-QML">View the Project on GitHub <small>ashish157/Knobs-n-Dials-QML</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ashish157/Knobs-n-Dials-QML/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ashish157/Knobs-n-Dials-QML/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ashish157/Knobs-n-Dials-QML">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="qtknobs" class="anchor" href="#qtknobs" aria-hidden="true"><span class="octicon octicon-link"></span></a>QtKnobs</h1>
+
+<p>QtKnobs is a Qt and QML based Library/Plugin which provides different types of Knobs.</p>
+
+<p>Screenshots:</p>
+
+<ul>
+<li>
+<h6>
+<a id="all-types" class="anchor" href="#all-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>All Types:</h6>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/alltypes.png" alt="ScreenShot"></p>
+</li>
+<li>
+<h6>
+<a id="percent-mode" class="anchor" href="#percent-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Percent Mode</h6>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/percent.png" alt="ScreenShot"></p>
+</li>
+<li>
+<h6>
+<a id="specify-max-values" class="anchor" href="#specify-max-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Specify Max values</h6>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/maxvalues.png" alt="ScreenShot"></p>
+</li>
+<li>
+<h6>
+<a id="different-sizes" class="anchor" href="#different-sizes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Different sizes</h6>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/sizes.png" alt="ScreenShot"></p>
+</li>
+<li>
+<h6>
+<a id="customize" class="anchor" href="#customize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customize</h6>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/custom.png" alt="ScreenShot"></p>
+</li>
+</ul>
+
+<h1>
+<a id="list-of-properties" class="anchor" href="#list-of-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of properties</h1>
+
+<ul>
+<li>size</li>
+<li>value</li>
+<li>maximumValue</li>
+<li>percent</li>
+<li>readOnly { true, false }</li>
+<li>mode { Knob.Normal, Knob.Percent }</li>
+<li>style { Knob.Pie, Knob.Arc, Knob.Needle }</li>
+<li>pieType { Knob.Flat, Knob.Curve  } (<strong>when style = Knob.Pie</strong>)</li>
+<li>needleType { Knob.Point, Knob.Round, Knob.Groove  } (<strong>when style = Knob.Needle</strong>)</li>
+<li>color (<strong>knob color</strong>)</li>
+<li>backgroundColor (<strong>back dial color</strong>)</li>
+<li>foregroundColor (<strong>front dial color</strong>)</li>
+<li>borderColor</li>
+<li>textColor</li>
+<li>meter { true, false } (<strong>simple meter</strong>)</li>
+<li>pieMultiColor (some fun)</li>
+</ul>
+
+<h1>
+<a id="requirement" class="anchor" href="#requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirement</h1>
+
+<p>Qt &gt;= 5.3</p>
+
+<h1>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h1>
+
+<ul>
+<li>Clone</li>
+<li>Run qmake &amp;&amp; make</li>
+</ul>
+
+<p>The compiled library (libQtKnobs.so on .nix systems) would be in directory <strong>Knobs</strong> with <strong>qmldir</strong>.</p>
+
+<h1>
+<a id="use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h1>
+
+<p>Copy directory <strong>Knobs</strong> to your project location and include in it your .pro file.
+For eg:</p>
+
+<pre><code>unix:!macx: LIBS += -L$$PWD/Knobs/ -lQtKnobs
+
+INCLUDEPATH += $$PWD/Knobs
+DEPENDPATH += $$PWD/Knobs
+</code></pre>
+
+<p>Then to make the engine to search for this module, add the path where the <strong>Knobs</strong> directory is using <em>addImportPath</em>. 
+For eg. If the directory <strong>Knobs</strong> is at location <em>/home/ashish/KnobsTest</em> then,</p>
+
+<pre><code>QQuickView view;
+view.engine()-&gt;addImportPath("/home/ashish/KnobsTest");
+view.show();
+</code></pre>
+
+<p>Additionally, to make QtCreator aware of it (and to get rid of the annoying <strong>QML module not found</strong> during import) add the path in .pro file,</p>
+
+<pre><code>QML_IMPORT_PATH = /home/ashish/KnobsTest
+</code></pre>
+
+<h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<ul>
+<li>
+<p>A simple Knob:</p>
+
+<pre><code>import QtQuick 2.0
+import Knobs 1.0
+Knob {
+  id: myKnob
+}
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/default.png" alt="ScreenShot"></p>
+
+<p>You can find more examples in QtKnobs/examples/main.qml</p>
+</li>
+</ul>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>MIT</p>
+
+<h1>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h1>
+
+<p>Feel free to contact me for any questions at ashishd157 at gmail.com.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ashish157">ashish157</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
