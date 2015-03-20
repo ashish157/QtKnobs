@@ -100,8 +100,8 @@ void PieStyle::paint(QPainter *painter)
 int PieStyle::endValueFromPoint(qreal x, qreal y)
 {
     qreal theta = qAtan2(x,-y);
-    qreal angle = fmod((theta * M_180_D_PI) + 360,360);
-    int v = qFloor(angle) * m_scale;
+    qreal angle = fmod((theta * M_180_D_PI) + 360.0,360.0);
+    int v = qCeil(angle * m_scale);
     return m_mode==PieStyle::Percent ? v*100/m_maxValue : v;
 }
 
@@ -146,8 +146,8 @@ void PieStyle::setMaxValue(int arg)
         return;
 
     m_maxValue = arg;
-    m_factor = (360.0/m_maxValue) * 16;
-    m_scale = 16 / m_factor;
+    m_factor = (360.0/m_maxValue) * 16.0;
+    m_scale = 16.0 / m_factor;
     emit maxValueChanged(arg);
 }
 

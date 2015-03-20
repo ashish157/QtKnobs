@@ -62,7 +62,7 @@ int ArcStyle::endValueFromPoint(qreal x, qreal y)
 {
     qreal theta = qAtan2(x,-y);
     qreal angle = fmod((theta * M_180_D_PI) + 360,360);
-    int v = qFloor(angle) * m_scale;
+    int v = qCeil(angle * m_scale);
     return m_mode==ArcStyle::Percent ? v*100/m_maxValue : v;
 }
 

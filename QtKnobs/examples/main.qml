@@ -38,7 +38,7 @@ Rectangle {
 
             Knob {
                 size: 200
-		readOnly: true
+                readOnly: true
                 style: Knob.Needle
                 needleType: Knob.Point
                 value: newVal
@@ -47,7 +47,7 @@ Rectangle {
 
             Knob {
                 size: 200
-		readOnly: true
+                readOnly: true
                 style: Knob.Pie
                 pieType: Knob.Curve
                 value: newVal
