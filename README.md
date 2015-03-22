@@ -12,7 +12,7 @@ Screenshots:
 
 - ###### Minimum & Maximum values
 
-  ![ScreenShot](https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/maxvalues.png)
+  ![ScreenShot](https://raw.githubusercontent.com/ashish157/QtKnobs/master/QtKnobs/screens/minandmax.png)
   
 - ###### Various Sizes
 
