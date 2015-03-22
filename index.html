@@ -83,6 +83,7 @@
 <ul>
 <li>size</li>
 <li>value</li>
+<li>minimumValue</li>
 <li>maximumValue</li>
 <li>percent</li>
 <li>readOnly { true, false }</li>
@@ -117,14 +118,12 @@
 <h1>
 <a id="use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h1>
 
-<p>Copy directory <strong>Knobs</strong> to your project location and include in it your .pro file.
-For eg:</p>
+<p>If you <strong>make install</strong> then you need not do anything. But just in case if you want it to be included in your application then:</p>
 
-<pre><code>unix:!macx: LIBS += -L$$PWD/Knobs/ -lQtKnobs
-
-INCLUDEPATH += $$PWD/Knobs
-DEPENDPATH += $$PWD/Knobs
-</code></pre>
+<ul>
+<li>Copy directory <strong>imports</strong> to your project location</li>
+<li>To make the engine to search for this module, add the path where the <strong>imports</strong> directory is using <strong>addImportPath</strong>.</li>
+</ul>
 
 <p>Then to make the engine to search for this module, add the path where the <strong>Knobs</strong> directory is using <em>addImportPath</em>. 
 For eg. If the directory <strong>Knobs</strong> is at location <em>/home/ashish/KnobsTest</em> then,</p>
