@@ -56,6 +56,7 @@ class Knob : public QQuickItem
     Q_PROPERTY(QColor foregroundColor READ foregroundColor WRITE setForegroundColor NOTIFY foregroundColorChanged)
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(QColor borderColor MEMBER m_borderColor NOTIFY borderColorChanged)
+    Q_PROPERTY(int minimumValue READ minimumValue WRITE setMinimumValue NOTIFY minimumValueChanged)
     Q_PROPERTY(int maximumValue READ maximumValue WRITE setMaximumValue NOTIFY maximumValueChanged)
     Q_PROPERTY(Style style READ style WRITE setStyle NOTIFY styleChanged)
     Q_PROPERTY(NeedleType needleType READ needleType WRITE setNeedleType NOTIFY needleTypeChanged)
@@ -103,6 +104,7 @@ public:
     GET(bool, meter)
     GET(int, percent)
     GET(int, value)
+    GET(int, minimumValue)
     GET(int, maximumValue)
     GET(bool, readOnly)
     GET(Style, style)
@@ -122,6 +124,7 @@ protected:
 
 protected slots:
     void setSize(qreal arg);
+    SET(int,MinimumValue,minimumValue)
     SET(int,MaximumValue,maximumValue)
     SET(Style,Style,style)
     SET(PieType,PieType,pieType)
@@ -143,6 +146,7 @@ signals:
     void backgroundColorChanged(QColor arg);
     void foregroundColorChanged(QColor arg);
     void textColorChanged(QColor arg);
+    void minimumValueChanged(int arg);
     void maximumValueChanged(int arg);
     void styleChanged(Style arg);
     void pieTypeChanged(int arg);
@@ -163,6 +167,7 @@ private:
     QColor m_textColor;
     QColor m_borderColor;
     int m_value;
+    int m_minimumValue;
     int m_maximumValue;
     int m_percent;
     bool m_readOnly;

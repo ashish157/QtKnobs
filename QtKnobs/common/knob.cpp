@@ -34,7 +34,8 @@ Knob::Knob(QQuickItem *parent)
       m_foregroundColor(Qt::white),
       m_textColor(Qt::red),
       m_borderColor(Qt::darkGray),
-      m_value(25),
+      m_value(0),
+      m_minimumValue(0),
       m_maximumValue(100),
       m_percent(0),
       m_readOnly(false),
@@ -120,7 +121,7 @@ void Knob::top()
     m_text->setProperty("color",m_textColor);
     QFont f; f.setPointSize(16);
     m_text->setProperty("font",f);
-    m_text->setProperty("text",m_mode==Knob::Percent?"0%":"0");
+    m_text->setProperty("text",m_mode==Knob::Percent?QString::number(m_percent)+"%":QString::number(m_minimumValue));
 }
 
 void Knob::mid()
@@ -194,6 +195,7 @@ void Knob::mid()
     item->setProperty("width",m_size);
     item->setProperty("height",m_size);
     item->setProperty("color",m_color);
+    item->setProperty("minValue",m_minimumValue);
     item->setProperty("maxValue",m_maximumValue);
     item->setProperty("readOnly",m_readOnly);
     item->setProperty("mode",m_mode);
