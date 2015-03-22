@@ -48,7 +48,7 @@ Qt >= 5.3
 * Clone
 * Run qmake && make && make install
 
-The compiled library (libQtKnobs.so on .nix systems) would be in directory **imports/QtKnobs** with **qmldir**.
+The compiled plugin (libqtknobsplugin.so on .nix systems) would be in directory **imports/QtKnobs** with file **qmldir**.
 
 #Use
 If you **make install** then you need not do anything. But just in case if you want it to be included in your application then: 
