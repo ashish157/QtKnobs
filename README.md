@@ -10,11 +10,11 @@ Screenshots:
 
   ![ScreenShot](https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/percent.png)
 
-- ###### Specify Max values
+- ###### Minimum & Maximum values
 
   ![ScreenShot](https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/maxvalues.png)
   
-- ###### Different sizes
+- ###### Various Sizes
 
   ![ScreenShot](https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/sizes.png)
   
@@ -25,6 +25,7 @@ Screenshots:
 #List of properties
 * size
 * value
+* minimumValue
 * maximumValue
 * percent
 * readOnly { true, false }
@@ -47,9 +48,24 @@ Qt >= 5.3
 * Clone
 * Run qmake && make && make install
 
-The compiled library (libQtKnobs.so on .nix systems) would be in directory **Knobs** with **qmldir**.
+The compiled library (libQtKnobs.so on .nix systems) would be in directory **imports/QtKnobs** with **qmldir**.
 
-#Use & Examples
+#Use
+If you **make install** then you need not do anything. But just in case if you want it to be included in your application then: 
+* Copy directory **imports** to your project location  
+* To make the engine to search for this module, add the path where the **imports** directory is using *addImportPath*.  
+For eg. If the directory **imports** is at location */home/ashish/KnobsTest* then,
+```
+QQuickView view;
+view.engine()->addImportPath("/home/ashish/KnobsTest/imports");
+view.show();
+```
+* Additionally, to make QtCreator aware of it (and to get rid of the annoying **QML module not found** during import) add the path in .pro file,
+```
+QML_IMPORT_PATH = /home/ashish/KnobsTest/imports
+```
+
+#Examples
 
 * A simple Knob:
   
@@ -57,7 +73,7 @@ The compiled library (libQtKnobs.so on .nix systems) would be in directory **Kno
   import QtQuick 2.0
   import QtKnobs 1.0
   Knob {
-    id: myKnob
+    value: 25
   }
   ```
 
