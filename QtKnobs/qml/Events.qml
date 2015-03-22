@@ -15,7 +15,7 @@ MouseArea {
 
     onWheel: {
         if(mode===10)
-            wheel.angleDelta.y < 0 ? value < maxValue ? ++value : maxValue : value > 0 ? --value : 0
+            wheel.angleDelta.y < 0 ? value < maxValue ? ++value : maxValue : value > minValue ? --value : minValue
         else
             wheel.angleDelta.y < 0 ? percent < 100 ? ++percent : 100 : percent > 0 ? --percent : 0
     }

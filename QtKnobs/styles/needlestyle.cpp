@@ -30,6 +30,7 @@
 NeedleStyle::NeedleStyle(QQuickItem *parent) :
     QQuickPaintedItem(parent),
     m_value(0),
+    m_minValue(0),
     m_maxValue(100),
     m_percent(0),
     m_readOnly(false),
@@ -102,8 +103,8 @@ int NeedleStyle::endValueFromPoint(qreal x, qreal y)
 {
     qreal theta = qAtan2(x,-y);
     qreal angle = fmod((theta * M_180_D_PI) + 360,360);
-    int v = qCeil(angle / m_scale);
-    return m_mode==NeedleStyle::Percent ? v*100/m_maxValue : v;
+    int v = qCeil(angle / m_scale) + m_minValue;
+    return m_mode==NeedleStyle::Percent ? (v-m_minValue)*100/(m_maxValue-m_minValue) : v;
 }
 
 void NeedleStyle::classBegin()
@@ -129,8 +130,13 @@ void NeedleStyle::setValue(int arg)
     if(m_value>m_maxValue)
         m_value = m_maxValue;
 
-    m_angle = (m_value * m_factor) - m_offset;
-    m_percent = m_value*100/m_maxValue;
+    if(m_value<m_minValue)
+        m_value = m_minValue;
+
+    int diff = (m_value-m_minValue);
+
+    m_angle = (diff * m_factor) - m_offset;
+    m_percent = diff*100/(m_maxValue-m_minValue);
     if(m_mode == NeedleStyle::Normal) {
         emit percentChanged(m_percent);
         emit valueChanged(m_value);
@@ -141,14 +147,23 @@ void NeedleStyle::setValue(int arg)
     update();
 }
 
-void NeedleStyle::setMaxValue(int arg)
+void NeedleStyle::setMinValue(int arg)
 {
-    if (m_maxValue == arg)
+    if (m_minValue == arg)
         return;
 
+    m_minValue = arg;
+    m_value = m_minValue;
+    emit minValueChanged(arg);
+}
+
+void NeedleStyle::setMaxValue(int arg)
+{
     m_maxValue = arg;
-    m_factor = 360.0/m_maxValue;
+    m_factor = 360.0/(m_maxValue-m_minValue);
     m_scale = m_factor;
+    if (m_maxValue == arg)
+        return;
     emit maxValueChanged(arg);
 }
 
@@ -158,6 +173,7 @@ void NeedleStyle::setPercent(int arg)
         return;
 
     m_percent = arg;
-    setValue(m_percent*m_maxValue/100);
+    int value = qCeil(m_percent*(m_maxValue-m_minValue)/100.0) + m_minValue;
+    setValue(value);
 }
 

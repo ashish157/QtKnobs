@@ -38,6 +38,7 @@ class PieStyle : public QQuickPaintedItem
     Q_ENUMS(CapStyle)
     Q_ENUMS(Mode)
     Q_PROPERTY(int value MEMBER m_value WRITE setValue NOTIFY valueChanged)
+    Q_PROPERTY(int minValue MEMBER m_minValue WRITE setMinValue NOTIFY minValueChanged)
     Q_PROPERTY(int maxValue MEMBER m_maxValue WRITE setMaxValue NOTIFY maxValueChanged)
     Q_PROPERTY(int percent MEMBER m_percent WRITE setPercent NOTIFY percentChanged)
     Q_PROPERTY(bool multicolor MEMBER m_multiColor WRITE setMultiColor NOTIFY multiColorChanged)
@@ -69,6 +70,7 @@ public:
 signals:
     void valueChanged(int arg);
     void multiColorChanged(bool arg);
+    void minValueChanged(int arg);
     void maxValueChanged(int arg);
     void readOnlyChanged(bool arg);
     void percentChanged(int arg);
@@ -77,6 +79,7 @@ signals:
     void styleChanged(CapStyle arg);
 
 protected slots:
+    void setMinValue(int arg);
     void setMaxValue(int arg);
     void setMultiColor(bool arg);
     void setPercent(int arg);
@@ -84,6 +87,7 @@ protected slots:
 
 private:
     int m_value;
+    int m_minValue;
     int m_maxValue;
     int m_percent;
     bool m_readOnly;

@@ -37,6 +37,7 @@ class ArcStyle : public QQuickPaintedItem
     Q_OBJECT
     Q_ENUMS(Mode)
     Q_PROPERTY(int value MEMBER m_value WRITE setValue NOTIFY valueChanged)
+    Q_PROPERTY(int minValue MEMBER m_minValue WRITE setMinValue NOTIFY minValueChanged)
     Q_PROPERTY(int maxValue MEMBER m_maxValue WRITE setMaxValue NOTIFY maxValueChanged)
     Q_PROPERTY(int percent MEMBER m_percent WRITE setPercent NOTIFY percentChanged)
     Q_PROPERTY(QColor color MEMBER m_color NOTIFY colorChanged)
@@ -59,6 +60,7 @@ public:
 
 signals:
     void valueChanged(int arg);
+    void minValueChanged(int arg);
     void maxValueChanged(int arg);
     void percentChanged(int arg);
     void readOnlyChanged(bool arg);
@@ -67,11 +69,13 @@ signals:
 
 protected slots:
     void setValue(int arg);
+    void setMinValue(int arg);
     void setMaxValue(int arg);
     void setPercent(int arg);
 
 private:
     int m_value;
+    int m_minValue;
     int m_maxValue;
     int m_percent;
     bool m_readOnly;

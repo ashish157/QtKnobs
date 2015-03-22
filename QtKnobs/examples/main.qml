@@ -1,10 +1,9 @@
 import QtQuick 2.4
 import QtKnobs 1.0
-import QtQuick.Controls 1.2
 
 Rectangle {
     width: 1280
-    height: 460
+    height: 680
 
     property int newVal : 0
 
@@ -129,6 +128,18 @@ Rectangle {
                 foregroundColor: "#00FF99"
                 borderColor: "#003399"
                 textColor: "#8D18D7"
+            }
+        }
+        
+        Row {
+            spacing: 5
+
+            Knob {
+                size: 200
+                style: Knob.Arc
+                minimumValue: 500
+                maximumValue: 1500
+                color: "#05A8AA"
             }
         }
     }

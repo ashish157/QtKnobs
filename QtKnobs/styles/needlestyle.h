@@ -38,6 +38,7 @@ class NeedleStyle : public QQuickPaintedItem
     Q_ENUMS(Style)
     Q_ENUMS(Mode)
     Q_PROPERTY(int value MEMBER m_value WRITE setValue NOTIFY valueChanged)
+    Q_PROPERTY(int minValue MEMBER m_minValue WRITE setMinValue NOTIFY minValueChanged)
     Q_PROPERTY(int maxValue MEMBER m_maxValue WRITE setMaxValue NOTIFY maxValueChanged)
     Q_PROPERTY(int percent MEMBER m_percent WRITE setPercent NOTIFY percentChanged)
     Q_PROPERTY(Style style MEMBER m_style NOTIFY styleChanged)
@@ -68,6 +69,7 @@ public:
 signals:
     void styleChanged(Style arg);
     void valueChanged(int arg);
+    void minValueChanged(int arg);
     void maxValueChanged(int arg);
     void readOnlyChanged(bool arg);
     void percentChanged(int arg);
@@ -75,12 +77,14 @@ signals:
     void colorChanged(QColor arg);
 
 protected slots:
+    void setMinValue(int arg);
+    void setMaxValue(int arg);
     void setValue(int arg);
     void setPercent(int arg);
-    void setMaxValue(int arg);
 
 private:
     int m_value;
+    int m_minValue;
     int m_maxValue;
     int m_percent;
     bool m_readOnly;
