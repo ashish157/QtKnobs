@@ -125,17 +125,17 @@
 <li>To make the engine to search for this module, add the path where the <strong>imports</strong> directory is using <strong>addImportPath</strong>.</li>
 </ul>
 
-<p>Then to make the engine to search for this module, add the path where the <strong>Knobs</strong> directory is using <em>addImportPath</em>. 
-For eg. If the directory <strong>Knobs</strong> is at location <em>/home/ashish/KnobsTest</em> then,</p>
+
+<p>For eg. If the directory <strong>imports</strong> is at location <strong>/home/ashish/KnobsTest</strong> then,</p>
 
 <pre><code>QQuickView view;
-view.engine()-&gt;addImportPath("/home/ashish/KnobsTest");
+view.engine()-&gt;addImportPath("/home/ashish/KnobsTest/imports");
 view.show();
 </code></pre>
 
 <p>Additionally, to make QtCreator aware of it (and to get rid of the annoying <strong>QML module not found</strong> during import) add the path in .pro file,</p>
 
-<pre><code>QML_IMPORT_PATH = /home/ashish/KnobsTest
+<pre><code>QML_IMPORT_PATH = /home/ashish/KnobsTest/imports
 </code></pre>
 
 <h1>
@@ -146,9 +146,9 @@ view.show();
 <p>A simple Knob:</p>
 
 <pre><code>import QtQuick 2.0
-import Knobs 1.0
+import QtKnobs 1.0
 Knob {
-  id: myKnob
+  value: 25
 }
 </code></pre>
 
