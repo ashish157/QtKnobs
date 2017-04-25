@@ -1,4 +1,4 @@
-#QtKnobs
+# QtKnobs
 QtKnobs is a Qt and QML based Library/Plugin which provides different types of Knobs.
 
 Screenshots:
@@ -22,7 +22,7 @@ Screenshots:
 
   ![ScreenShot](https://raw.githubusercontent.com/ashish157/Knobs-n-Dials-QML/5c5e347b649606533a95330b9cafb3b4eb4b8155/QtKnobs/screens/custom.png)
 
-#List of properties
+# List of properties
 * size
 * value
 * minimumValue
@@ -41,16 +41,16 @@ Screenshots:
 * meter { true, false } (**simple meter**)
 * pieMultiColor (some fun)
  
-#Requirement
+# Requirement
 Qt >= 5.3
 
-#Building
+# Building
 * Clone
 * Run qmake && make && make install
 
 The compiled plugin (libqtknobsplugin.so on .nix systems) would be in directory **imports/QtKnobs** with file **qmldir**.
 
-#Use
+# Use
 If you **make install** then you need not do anything. But just in case if you want it to be included in your application then: 
 * Copy directory **imports** to your project location  
 * To make the engine to search for this module, add the path where the **imports** directory is using *addImportPath*.  
@@ -65,7 +65,7 @@ view.show();
 QML_IMPORT_PATH = /home/ashish/KnobsTest/imports
 ```
 
-#Examples
+# Examples
 
 * A simple Knob:
   
@@ -81,9 +81,9 @@ QML_IMPORT_PATH = /home/ashish/KnobsTest/imports
 
    You can find more examples in QtKnobs/examples/main.qml
 
-#License
+# License
 
 MIT
 
-#Contact
+# Contact
 Feel free to contact me for any questions at ashishd157 at gmail.com.
