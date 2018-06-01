@@ -206,6 +206,8 @@ void Knob::makeConnections(QQuickItem &item)
 {
     connect(&item,SIGNAL(valueChanged(int)),this,SLOT(setValue(int)));
     connect(&item,SIGNAL(percentChanged(int)),this,SLOT(setPercent(int)));
+    connect(this,SIGNAL(maximumValueChanged(int)),&item,SLOT(setMaxValue(int)));
+    connect(this,SIGNAL(minimumValueChanged(int)),&item,SLOT(setMinValue(int)));
     connect(parentItem(),&QQuickItem::destroyed,&item,&QQuickItem::deleteLater);
 }
 
